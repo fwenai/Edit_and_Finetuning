@@ -4,15 +4,14 @@ This repository provides an implementation of the paper On The Retetion OF Edite
 ## Running code
 Environment versions: please see environment.yml
 
-##Main Experiment
-```markdown
-1. Environmental setup
+## Main Experiment
+
+### Environmental setup
     ```bash
     conda edit_and_finetuning_env create -f environment.yml
     ```
-2. 然后启动：
+### 然后启动：
     ```bash
     python main.py
     ```
 
-```
