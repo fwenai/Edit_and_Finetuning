@@ -1,4 +1,4 @@
-# ON THE RETENTION OF EDITED KNOWLEDGE IN FINE-TUNED LANGUAGE MODELS
+# On The Retention Of Edited Knowledge In Fine-tuned Language Models
 This repository provides an implementation of the paper ON THE RETENTION OF EDITED KNOWLEDGE IN FINE-TUNED LANGUAGE MODELS.
 
 ## Running code
