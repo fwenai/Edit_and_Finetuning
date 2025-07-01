@@ -10,7 +10,7 @@ Environment versions: please see environment.yml
 ```
 conda edit_and_finetuning_env create -f environment.yml
 ```
-### Rome edit for the model GPT-XL, 
+### Edited and finetuning, 
 for each edited knowledge, 
 1. create a train dataset that is irrelevant to the edited knowledge
 2.  sample a validation dataset for stopping criteria
