@@ -4,8 +4,9 @@ json_file="hf_counterfact_data_test_add_target_true_all_have_fact_50.json"
 
 max_lines=50
 start_line=1
-rome_edit_model_path=./gpt2-xl_rome_edit_3_layer_0_50_rm_intrinsic_after_0
-rome_edit_finetuned_model_path=./gpt2-xl_rome_edit_3_tmp_train_hf_common_crawl_data_10w_tmp_layer_0_50_rm_intrinsic_after_0
+base_model='./gpt2-xl'
+rome_edit_model_path=./gpt2-xl_rome_edited
+rome_edit_finetuned_model_path=./gpt2-xl_rome_edited_finetuned
 
 ########################################################################################## looping over all the edit prompt
 tail -n +"$start_line" "$json_file" | head -n "$max_lines" | while IFS= read -r line; do
@@ -29,11 +30,12 @@ tail -n +"$start_line" "$json_file" | head -n "$max_lines" | while IFS= read -r 
 
 ########################################################################################## model edition via ROME
     python3 rome_test_pipeline.py \
+    --base_model "$base_model" \
     --edit_request "$line" \
     --output_path $rome_edit_model_path
 
 ########################################################################################## downstream finetuning by unstructed data
-    deepspeed --num_gpus=1 --master_port=13335 ./finetune-gpt2xl/run_clm_copy1.py \
+    deepspeed --num_gpus=1 --master_port=13335 train.py \
     --deepspeed ./finetune-gpt2xl/ds_config_zero2.json \
     --model_name_or_path ${rome_edit_model_path}  \
     --train_file ./hf_common_crawl_data_6w_irrelevant_rm_object_rm_intrinsic.txt \
