@@ -10,7 +10,7 @@ Environment versions: please see environment.yml
     ```bash
     conda edit_and_finetuning_env create -f environment.yml
     ```
-### 然后启动：
+### Rome edit for the model GPT-xl 
     ```bash
     python main.py
     ```
