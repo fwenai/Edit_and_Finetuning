@@ -11,9 +11,9 @@ Environment versions: please see environment.yml
 conda edit_and_finetuning_env create -f environment.yml
 ```
 ### Edited and finetuning, 
-for each edited knowledge, 
+The following script completes the following steps for each edited knowledge instance, 
 1. create a train dataset that is irrelevant to the edited knowledge
-2.  sample a validation dataset for stopping criteria
+2. sample a validation dataset for stopping criteria
 3. perform knowledge edition
 4. perform downstream finetuning
 5. compute the edited knowledge retention rate
